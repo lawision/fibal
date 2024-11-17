@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales History</title>
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Sales History</h2>
+
+    <table id="salesHistoryTable">
+        <thead>
+            <tr>
+                <th>Date & Time</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Size</th>
+                <th>Total Amount (₱)</th>
+            </tr>
+        </thead>
+        <tbody id="salesHistoryTableBody"></tbody>
+    </table>
+
+    <button id="backToShop" style="display: block; margin: 20px auto;">Back to Shop</button>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const salesHistoryTableBody = document.getElementById("salesHistoryTableBody");
+        const currentUser = localStorage.getItem("currentUser");
+        const salesHistoryKey = currentUser + "_salesHistory";
+
+        // Retrieve sales history from localStorage
+        const salesHistory = JSON.parse(localStorage.getItem(salesHistoryKey)) || [];
+
+        if (salesHistory.length === 0) {
+            salesHistoryTableBody.innerHTML = "<tr><td colspan='5' style='text-align: center;'>No sales history available.</td></tr>";
+        } else {
+            salesHistory.forEach(sale => {
+                const saleDate = sale.date; // The date when the order was made
+
+                sale.products.forEach(product => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${saleDate}</td>
+                        <td>${product.name}</td>
+                        <td>${product.quantity}</td>
+                        <td>${product.size || 'N/A'}</td>
+                        <td>₱${sale.totalAmount}</td>
+                    `;
+                    salesHistoryTableBody.appendChild(row);
+                });
+            });
+        }
+
+        // Back to Shop button functionality
+        const backToShopButton = document.getElementById("backToShop");
+        backToShopButton.addEventListener("click", () => {
+            window.location.href = "shop.html";  // Adjust the path as needed
+        });
+    });
+</script>
+
+</body>
+</html>

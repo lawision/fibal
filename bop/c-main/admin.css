@@ -1,0 +1,208 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Top Navigation Bar */
+.navbar {
+    background-color: #34495e; /* Dark blue-gray background */
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.navbar .logo h1 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar nav ul li {
+    margin: 0 15px;
+}
+
+.navbar nav ul li a {
+    color: #ecf0f1; /* Light gray color for the links */
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.navbar nav ul li a:hover {
+    background-color: #1abc9c; /* Bright greenish color for hover */
+    color: #fff; /* White text when hovered */
+}
+
+/* Main Content Styles */
+main {
+    padding: 30px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Product Form Section */
+.product-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.product-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.product-form label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.product-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.product-form button {
+    background-color: #2ecc71;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-form button:hover {
+    background-color: #27ae60;
+}
+
+/* Product List Section */
+.product-list {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-list h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.product-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.product-list th, .product-list td {
+    padding: 15px;
+    text-align: left;
+}
+
+.product-list th {
+    background-color: #f1f1f1;
+}
+
+.product-list td {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.product-list tr:hover {
+    background-color: #f9f9f9;
+}
+
+.product-list img {
+    width: 50px;
+    height: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .navbar nav ul li {
+        margin: 10px 0;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    .product-form,
+    .product-list {
+        margin: 10px;
+    }
+}
+/* Main Content for User Management */
+.user-management {
+    margin-left: 270px;
+    padding: 20px;
+}
+
+.user-management form input, .user-management form button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
+.user-management table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.user-management table th, .user-management table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.user-management table th {
+    background-color: #f8f9fa;
+}
+
